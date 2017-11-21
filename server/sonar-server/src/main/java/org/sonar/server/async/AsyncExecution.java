@@ -20,5 +20,12 @@
 package org.sonar.server.async;
 
 public interface AsyncExecution {
+  /**
+   * Add the specified {@link Runnable} in queue for asynchronous processing.
+   *
+   * This method returns instantly and {@code r} is executed in another thread.
+   *
+   * @throws NullPointerException if r is {@code null}
+   */
   void addToQueue(Runnable r);
 }

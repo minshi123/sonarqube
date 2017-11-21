@@ -22,6 +22,8 @@ package org.sonar.server.async;
 import org.sonar.api.utils.log.Logger;
 import org.sonar.api.utils.log.Loggers;
 
+import static java.util.Objects.requireNonNull;
+
 public class AsyncExecutionImpl implements AsyncExecution {
   private static final Logger LOG = Loggers.get(AsyncExecutionImpl.class);
   private final AsyncExecutionExecutorService executorService;
@@ -32,11 +34,12 @@ public class AsyncExecutionImpl implements AsyncExecution {
 
   @Override
   public void addToQueue(Runnable r) {
+    requireNonNull(r);
     executorService.addToQueue(() -> {
       try {
         r.run();
       } catch (Exception e) {
-        LOG.error("Async task failed", e);
+        LOG.error("Asynchronous task failed", e);
       }
     });
   }
