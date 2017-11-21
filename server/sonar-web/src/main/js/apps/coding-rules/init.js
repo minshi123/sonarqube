@@ -38,15 +38,12 @@ import { areThereCustomOrganizations } from '../../store/organizations/utils';
 
 const App = new Marionette.Application();
 
-App.on('start', function(
-  options /*: {
+App.on('start', function(options /*: {
   el: HTMLElement,
-  organization: ?string,
-  isDefaultOrganization: boolean
-} */
-) {
+  organization: string
+} */) {
   App.organization = options.organization;
-  const data = options.organization ? { organization: options.organization } : {};
+  const data = { organization: options.organization };
   Promise.all([getRulesApp(data), searchQualityProfiles(data)])
     .then(([appResponse, profilesResponse]) => {
       App.customRules = !areThereCustomOrganizations();
@@ -113,12 +110,8 @@ App.on('start', function(
     });
 });
 
-export default function(
-  el /*: HTMLElement */,
-  organization /*: ?string */,
-  isDefaultOrganization /*: boolean */
-) {
-  App.start({ el, organization, isDefaultOrganization });
+export default function(el /*: HTMLElement */, organization /*: string */) {
+  App.start({ el, organization });
 
   return () => {
     // $FlowFixMe

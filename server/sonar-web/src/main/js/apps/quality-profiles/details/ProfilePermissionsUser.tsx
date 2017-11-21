@@ -28,7 +28,7 @@ import { translate } from '../../../helpers/l10n';
 
 interface Props {
   onDelete: (user: User) => void;
-  organization?: string;
+  organization: string;
   profile: { language: string; name: string };
   user: User;
 }

@@ -21,18 +21,8 @@ import { RouterState, IndexRouteProps, RouteComponent, withRouter } from 'react-
 
 const routes = [
   {
-    getComponent(state: RouterState, callback: (err: any, component: RouteComponent) => any) {
-      import('./components/AppContainer')
-        .then(i => i.default)
-        .then(AppContainer => {
-          if (state.params.organizationKey) {
-            callback(null, AppContainer);
-          } else {
-            import('../organizations/forSingleOrganization')
-              .then(i => i.default)
-              .then(forSingleOrganization => callback(null, forSingleOrganization(AppContainer)));
-          }
-        });
+    getComponent(_: RouterState, callback: (err: any, component: RouteComponent) => any) {
+      import('./components/AppContainer').then(i => callback(null, i.default));
     },
     getIndexRoute(_: RouterState, callback: (err: any, route: IndexRouteProps) => any) {
       import('./home/HomeContainer').then(i => callback(null, { component: i.default }));

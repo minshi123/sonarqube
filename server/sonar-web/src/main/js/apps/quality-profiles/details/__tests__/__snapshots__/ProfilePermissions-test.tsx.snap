@@ -47,6 +47,7 @@ exports[`renders 2`] = `
       <ProfilePermissionsUser
         key="luke"
         onDelete={[Function]}
+        organization="org"
         profile={
           Object {
             "language": "js",
@@ -68,6 +69,7 @@ exports[`renders 2`] = `
         }
         key="Lambda"
         onDelete={[Function]}
+        organization="org"
         profile={
           Object {
             "language": "js",

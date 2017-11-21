@@ -29,15 +29,15 @@ it('should render correctly', () => {
 
 it('should render correctly if there is 0 rules', () => {
   expect(
-    shallow(<ProfileRulesRowTotal count={0} organization={null} qprofile="bar" total={0} />)
+    shallow(<ProfileRulesRowTotal count={0} organization="org" qprofile="bar" total={0} />)
   ).toMatchSnapshot();
 });
 
 it('should render correctly if there is missing data', () => {
   expect(
-    shallow(<ProfileRulesRowTotal count={5} organization={null} qprofile="bar" total={null} />)
+    shallow(<ProfileRulesRowTotal count={5} organization="org" qprofile="bar" total={null} />)
   ).toMatchSnapshot();
   expect(
-    shallow(<ProfileRulesRowTotal count={null} organization={null} qprofile="foo" total={10} />)
+    shallow(<ProfileRulesRowTotal count={null} organization="org" qprofile="foo" total={10} />)
   ).toMatchSnapshot();
 });

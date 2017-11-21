@@ -17,47 +17,23 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-// @flow
-import React from 'react';
+import * as React from 'react';
 import Helmet from 'react-helmet';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
-import { getAppState } from '../../../store/rootReducer';
 import { translate } from '../../../helpers/l10n';
 import init from '../init';
 import '../styles.css';
 
-class CodingRulesAppContainer extends React.PureComponent {
-  /*:: stop: ?() => void; */
-  /*:: props: {
-    appState: {
-      defaultOrganization: string,
-      organizationsEnabled: boolean
-    },
-    params: {
-      organizationKey?: string
-    },
-    router: {
-      replace: string => void
-    }
-  };
-*/
+interface Props {
+  organization: string;
+}
+
+export default class CodingRulesAppContainer extends React.PureComponent<Props> {
+  container?: HTMLElement | null;
+  stop?: () => void;
 
   componentDidMount() {
-    if (this.props.appState.organizationsEnabled && !this.props.params.organizationKey) {
-      // redirect to organization-level rules page
-      this.props.router.replace(
-        '/organizations/' +
-          this.props.appState.defaultOrganization +
-          '/rules' +
-          window.location.hash
-      );
-    } else {
-      this.stop = init(
-        this.refs.container,
-        this.props.params.organizationKey,
-        this.props.params.organizationKey === this.props.appState.defaultOrganization
-      );
+    if (this.container) {
+      this.stop = init(this.container, this.props.organization);
     }
   }
 
@@ -75,14 +51,8 @@ class CodingRulesAppContainer extends React.PureComponent {
     return (
       <div>
         <Helmet title={translate('coding_rules.page')} />
-        <div ref="container" />
+        <div ref={node => (this.container = node)} />
       </div>
     );
   }
 }
-
-const mapStateToProps = state => ({
-  appState: getAppState(state)
-});
-
-export default connect(mapStateToProps)(withRouter(CodingRulesAppContainer));

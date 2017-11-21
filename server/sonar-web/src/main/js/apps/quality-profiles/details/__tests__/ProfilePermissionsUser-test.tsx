@@ -37,7 +37,14 @@ beforeEach(() => {
 
 it('renders', () => {
   expect(
-    shallow(<ProfilePermissionsUser onDelete={jest.fn()} profile={profile} user={user} />)
+    shallow(
+      <ProfilePermissionsUser
+        onDelete={jest.fn()}
+        organization="org"
+        profile={profile}
+        user={user}
+      />
+    )
   ).toMatchSnapshot();
 });
 

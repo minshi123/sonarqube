@@ -50,7 +50,7 @@ exports[`should render correctly if there is 0 rules 1`] = `
     <Link
       onlyActiveOnIndex={false}
       style={Object {}}
-      to="/coding_rules#qprofile=bar|activation=true"
+      to="/organizations/org/rules#qprofile=bar|activation=true"
     >
       <strong>
         0
@@ -82,7 +82,7 @@ exports[`should render correctly if there is missing data 1`] = `
     <Link
       onlyActiveOnIndex={false}
       style={Object {}}
-      to="/coding_rules#qprofile=bar|activation=true"
+      to="/organizations/org/rules#qprofile=bar|activation=true"
     >
       <strong>
         5

@@ -29,7 +29,7 @@ import { translate } from '../../../helpers/l10n';
 interface Props {
   group: Group;
   onDelete: (group: Group) => void;
-  organization?: string;
+  organization: string;
   profile: { language: string; name: string };
 }
 

@@ -161,18 +161,13 @@ const startReactApp = () => {
                 <Route component={GlobalContainer}>
                   <Route path="about" childRoutes={aboutRoutes} />
                   <Route path="account" childRoutes={accountRoutes} />
-                  <Route path="coding_rules" childRoutes={codingRulesRoutes} />
                   <Route path="component" childRoutes={componentRoutes} />
                   <Route
                     path="extension/:pluginKey/:extensionKey"
                     component={GlobalPageExtension}
                   />
-                  <Route path="issues" childRoutes={issuesRoutes} />
+
                   <Route path="organizations" childRoutes={organizationsRoutes} />
-                  <Route path="projects" childRoutes={projectsRoutes} />
-                  <Route path="quality_gates" childRoutes={qualityGatesRoutes} />
-                  <Route path="portfolios" component={PortfoliosPage} />
-                  <Route path="profiles" childRoutes={qualityProfilesRoutes} />
                   <Route path="web_api" childRoutes={webAPIRoutes} />
 
                   <Route

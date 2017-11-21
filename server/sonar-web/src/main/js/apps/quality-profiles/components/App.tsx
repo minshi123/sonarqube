@@ -29,7 +29,7 @@ interface Props {
   children: React.ReactElement<any>;
   languages: Array<{}>;
   onRequestFail: (reasong: any) => void;
-  organization: { name: string; key: string } | null;
+  organization: string;
 }
 
 interface State {
@@ -65,8 +65,7 @@ export default class App extends React.PureComponent<Props, State> {
 
   fetchProfiles() {
     const { organization } = this.props;
-    const data = organization ? { organization: organization.key } : {};
-    return searchQualityProfiles(data);
+    return searchQualityProfiles({ organization });
   }
 
   loadData() {
@@ -106,7 +105,7 @@ export default class App extends React.PureComponent<Props, State> {
       exporters: this.state.exporters,
       updateProfiles: this.updateProfiles,
       onRequestFail: this.props.onRequestFail,
-      organization: organization ? organization.key : null
+      organization
     });
   }
 

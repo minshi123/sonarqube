@@ -34,7 +34,7 @@ interface Props {
   onClose: () => void;
   onGroupAdd: (group: Group) => void;
   onUserAdd: (user: User) => void;
-  organization?: string;
+  organization: string;
   profile: { language: string; name: string };
 }
 

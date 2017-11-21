@@ -40,7 +40,7 @@ export interface Group {
 }
 
 interface Props {
-  organization?: string;
+  organization: string;
   profile: { language: string; name: string };
 }
 

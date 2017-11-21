@@ -34,7 +34,7 @@ it('should render correctly if there is 0 rules', () => {
     shallow(
       <ProfileRulesRowOfType
         count={0}
-        organization={null}
+        organization="org"
         qprofile="bar"
         total={0}
         type="VULNERABILITY"
@@ -48,7 +48,7 @@ it('should render correctly if there is missing data', () => {
     shallow(
       <ProfileRulesRowOfType
         count={5}
-        organization={null}
+        organization="org"
         qprofile="bar"
         total={null}
         type="VULNERABILITY"
@@ -59,7 +59,7 @@ it('should render correctly if there is missing data', () => {
     shallow(
       <ProfileRulesRowOfType
         count={null}
-        organization={null}
+        organization="org"
         qprofile="foo"
         total={10}
         type="VULNERABILITY"

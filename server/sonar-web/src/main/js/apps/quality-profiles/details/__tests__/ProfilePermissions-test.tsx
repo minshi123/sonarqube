@@ -39,7 +39,7 @@ beforeEach(() => {
 });
 
 it('renders', () => {
-  const wrapper = shallow(<ProfilePermissions profile={profile} />);
+  const wrapper = shallow(<ProfilePermissions organization="org" profile={profile} />);
   expect(wrapper).toMatchSnapshot();
 
   wrapper.setState({
@@ -54,7 +54,7 @@ it('opens add users form', async () => {
   searchUsers.mockImplementationOnce(() =>
     Promise.resolve({ users: [{ login: 'luke', name: 'Luke Skywalker' }] })
   );
-  const wrapper = shallow(<ProfilePermissions profile={profile} />);
+  const wrapper = shallow(<ProfilePermissions organization="org" profile={profile} />);
   expect(searchUsers).toHaveBeenCalled();
   await new Promise(setImmediate);
   wrapper.update();
@@ -69,7 +69,7 @@ it('opens add users form', async () => {
 });
 
 it('removes user', () => {
-  const wrapper = shallow(<ProfilePermissions profile={profile} />);
+  const wrapper = shallow(<ProfilePermissions organization="org" profile={profile} />);
   (wrapper.instance() as ProfilePermissions).mounted = true;
 
   const joda = { login: 'joda', name: 'Joda' };
@@ -85,7 +85,7 @@ it('removes user', () => {
 });
 
 it('removes group', () => {
-  const wrapper = shallow(<ProfilePermissions profile={profile} />);
+  const wrapper = shallow(<ProfilePermissions organization="org" profile={profile} />);
   (wrapper.instance() as ProfilePermissions).mounted = true;
 
   const lambda = { name: 'Lambda' };
