@@ -76,10 +76,9 @@ export default class QualityGatesApp extends Component {
 
   render() {
     const { children, qualityGates, edit, organization } = this.props;
-    const defaultTitle = translate('quality_gates.page');
     return (
       <div id="quality-gates-page" className="layout-page">
-        <Helmet defaultTitle={defaultTitle} titleTemplate={'%s - ' + defaultTitle} />
+        <Helmet title={translate('quality_gates.page')} />
 
         <ScreenPositionHelper className="layout-page-side-outer">
           {({ top }) => (

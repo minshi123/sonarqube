@@ -18,10 +18,10 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 import * as React from 'react';
+import { Helmet } from 'react-helmet';
 import { searchQualityProfiles, getExporters, Actions } from '../../../api/quality-profiles';
 import { sortProfiles } from '../utils';
 import { translate } from '../../../helpers/l10n';
-import OrganizationHelmet from '../../../components/common/OrganizationHelmet';
 import '../styles.css';
 import { Exporter, Profile } from '../types';
 
@@ -112,11 +112,7 @@ export default class App extends React.PureComponent<Props, State> {
   render() {
     return (
       <div className="page page-limited">
-        <OrganizationHelmet
-          title={translate('quality_profiles.page')}
-          organization={this.props.organization}
-        />
-
+        <Helmet title={translate('quality_profiles.page')} />
         {this.renderChild()}
       </div>
     );
