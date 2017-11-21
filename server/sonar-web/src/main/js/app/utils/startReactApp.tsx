@@ -17,45 +17,32 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
-import React from 'react';
-import handleRequiredAuthorization from '../utils/handleRequiredAuthorization';
+import * as React from 'react';
+import { render } from 'react-dom';
+import { Router, RouterState } from 'react-router';
+import { Provider } from 'react-redux';
+import routes from './routes';
+import getStore from './getStore';
+import getHistory from './getHistory';
 
-export default class ProjectAdminContainer extends React.PureComponent {
-  /*::
-  props: {
-    component: {
-      configuration?: {
-        showSettings: boolean
-      }
-    }
-  };
-  */
+export default function startReactApp() {
+  const el = document.getElementById('content');
 
-  componentDidMount() {
-    this.checkPermissions();
-  }
+  const history = getHistory();
+  const store = getStore();
 
-  componentDidUpdate() {
-    this.checkPermissions();
-  }
+  render(
+    <Provider store={store}>
+      <Router history={history} onUpdate={handleUpdate} routes={routes} />
+    </Provider>,
+    el
+  );
+}
 
-  isProjectAdmin() {
-    const { configuration } = this.props.component;
-    return configuration != null && configuration.showSettings;
-  }
+function handleUpdate(this: { state: RouterState }) {
+  const { action } = this.state.location;
 
-  checkPermissions() {
-    if (!this.isProjectAdmin()) {
-      handleRequiredAuthorization();
-    }
-  }
-
-  render() {
-    if (!this.isProjectAdmin()) {
-      return null;
-    }
-
-    const { children, ...props } = this.props;
-    return React.cloneElement(children, props);
+  if (action === 'PUSH') {
+    window.scrollTo(0, 0);
   }
 }

@@ -18,10 +18,40 @@
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 import * as React from 'react';
-import { IndexRoute } from 'react-router';
-import MaintenanceAppContainer from './components/MaintenanceAppContainer';
-import SetupAppContainer from './components/SetupAppContainer';
+import { Component } from '../types';
+import handleRequiredAuthorization from '../utils/handleRequiredAuthorization';
 
-export const maintenanceRoutes = <IndexRoute component={MaintenanceAppContainer} />;
+interface Props {
+  children: JSX.Element;
+  component: Component;
+}
 
-export const setupRoutes = <IndexRoute component={SetupAppContainer} />;
+export default class ProjectAdminContainer extends React.PureComponent<Props> {
+  componentDidMount() {
+    this.checkPermissions();
+  }
+
+  componentDidUpdate() {
+    this.checkPermissions();
+  }
+
+  isProjectAdmin() {
+    const { configuration } = this.props.component;
+    return configuration != null && configuration.showSettings;
+  }
+
+  checkPermissions() {
+    if (!this.isProjectAdmin()) {
+      handleRequiredAuthorization();
+    }
+  }
+
+  render() {
+    if (!this.isProjectAdmin()) {
+      return null;
+    }
+
+    const { children, ...props } = this.props;
+    return React.cloneElement(children, props);
+  }
+}
