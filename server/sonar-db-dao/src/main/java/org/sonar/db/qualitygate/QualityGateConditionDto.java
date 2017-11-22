@@ -26,6 +26,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import javax.annotation.CheckForNull;
 import javax.annotation.Nullable;
 import org.sonar.api.measures.Metric.ValueType;
@@ -205,5 +206,29 @@ public class QualityGateConditionDto {
     } else {
       return Collections.emptySet();
     }
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (!(o instanceof QualityGateConditionDto)) {
+      return false;
+    }
+    QualityGateConditionDto that = (QualityGateConditionDto) o;
+    return id == that.id &&
+      qualityGateId == that.qualityGateId &&
+      metricId == that.metricId &&
+      Objects.equals(metricKey, that.metricKey) &&
+      Objects.equals(period, that.period) &&
+      Objects.equals(operator, that.operator) &&
+      Objects.equals(warningThreshold, that.warningThreshold) &&
+      Objects.equals(errorThreshold, that.errorThreshold);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, qualityGateId, metricId, metricKey, period, operator, warningThreshold, errorThreshold);
   }
 }
