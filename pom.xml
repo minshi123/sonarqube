@@ -10,6 +10,7 @@
   <url>http://www.sonarqube.org/</url>
   <description>Open source platform for continuous inspection of code quality</description>
 
+
   <modules>
     <module>sonar-application</module>
     <module>sonar-batch</module>
