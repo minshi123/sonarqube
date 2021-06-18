@@ -23,7 +23,7 @@
     <sqZipDir>../sonar-application/target</sqZipDir>
     <category>*</category>
     <skipIts>false</skipIts>
-    <jetty.version>9.3.11.v20160721</jetty.version>
+    <jetty.version>9.4.39.v20210325</jetty.version>
     <byteman.version>3.0.10</byteman.version>
   </properties>
 
@@ -93,7 +93,7 @@
     <dependency>
       <groupId>org.skyscreamer</groupId>
       <artifactId>jsonassert</artifactId>
-      <version>1.2.0</version>
+      <version>1.2.1</version>
     </dependency>
     <dependency>
       <groupId>com.squareup.okhttp3</groupId>
