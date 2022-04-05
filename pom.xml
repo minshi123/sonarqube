@@ -49,10 +49,10 @@
   <properties>
     <!-- see http://repo1.maven.org/maven2/org/sonarsource/dotnet/sonar-csharp-plugin/ -->
     <!-- Do not forget to exclude any new transitive dependencies -->
-    <sonarCSharp.version>6.5.0.3766</sonarCSharp.version>
+    <sonarCSharp.version>7.15.0.8572</sonarCSharp.version>
     <!-- see http://repo1.maven.org/maven2/org/sonarsource/java/sonar-java-plugin/ -->
     <!-- Do not forget to exclude any new transitive dependencies -->
-    <sonarJava.version>4.15.0.12310</sonarJava.version>
+    <sonarJava.version>5.0.0.12796</sonarJava.version>
     <!-- see http://repo1.maven.org/maven2/org/sonarsource/javascript/sonar-javascript-plugin/ -->
     <!-- Do not forget to exclude any new transitive dependencies -->
     <sonarJavaScript.version>3.2.0.5506</sonarJavaScript.version>
@@ -67,13 +67,13 @@
     <sonarFlex.version>2.3</sonarFlex.version>
     <!-- see http://repo1.maven.org/maven2/org/sonarsource/xml/sonar-xml-plugin/ -->
     <!-- Do not forget to exclude any new transitive dependencies -->
-    <sonarXml.version>1.4.3.1027</sonarXml.version>
+    <sonarXml.version>1.5.0.1373</sonarXml.version>
     <!-- see https://repo1.maven.org/maven2/org/sonarsource/typescript/sonar-typescript-plugin/ -->
     <sonarTs.version>1.1.0.1079</sonarTs.version>
     <!-- see http://repo1.maven.org/maven2/org/sonarsource/scm/git/sonar-scm-git-plugin/ -->
-    <sonarGit.version>1.3.0.869</sonarGit.version>
+    <sonarGit.version>1.11.0.11</sonarGit.version>
     <!-- see http://repo1.maven.org/maven2/org/sonarsource/scm/svn/sonar-scm-svn-plugin/ -->
-    <sonarSvn.version>1.6.0.860</sonarSvn.version>
+    <sonarSvn.version>1.10.0.1917</sonarSvn.version>
     <sonarUpdateCenter.version>1.18.0.487</sonarUpdateCenter.version>
     <h2.version>1.3.176</h2.version>
     <jetty.version>8.1.12.v20130726</jetty.version>
